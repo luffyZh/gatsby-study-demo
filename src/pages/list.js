@@ -37,7 +37,15 @@ const List = () => {
                 <td>{item.node.relativePath}</td>
                 <td>{item.node.dir.split('/').pop()}</td>
                 <td>
-                  <a rel="noopener noreferrer" target='_blank' href={`${window.location.origin}${item.node.publicURL}`}>{`${window.location.origin}${item.node.publicURL}`}</a>
+                  {
+                    typeof window !== `undefined`
+                    ?  <a 
+                    rel="noopener noreferrer"
+                    target='_blank'
+                    href={`${window.location.origin}${item.node.publicURL}`}>{`${window.location.origin}${item.node.publicURL}`}
+                  </a>
+                    : <span></span>
+                  }
                 </td>
               </tr>
             </Fragment>
